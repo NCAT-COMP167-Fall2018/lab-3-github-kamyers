@@ -20,6 +20,14 @@ public class PersonalTwitterFeed {
     /**
      * @param args the command line arguments
      */
+    private static String getCurrentTimeStamp() {
+      String pattern = "yyyy-MM-dd HH:mm:ss";
+      SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+      
+      String date = simpleDateFormat.format(new Date());
+      return date;
+} 
+  
     public static void main(String[] args) {
         String[] tweets = new String[MAX_NUMBER_TWEETS];
         Scanner keyboard = new Scanner(System.in);
@@ -34,7 +42,7 @@ public class PersonalTwitterFeed {
         int numTweets = 0;
         
         while(numTweets < (MAX_NUMBER_TWEETS - 1)) {
-            tweets[numTweets] = keyboard.nextLine();
+            tweets[numTweets] = keyboard.nextLine() + " " + getCurrentTimeStamp();
             numTweets++;
             
             System.out.println(tweeterName + "'s Personal Twitter Feed:");
